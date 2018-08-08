@@ -25,9 +25,11 @@ export default class Withdrawal extends Component {
 
   }
 
- componentDidMount() {
-   this.setState({ currentBalance : this.props.userDetails.currentBalance });
- }
+  componentWillUpdate(nextprops , nextstate ){
+    if(this.state.currentBalance === ""){
+      nextstate.currentBalance = nextprops.userDetails.currentBalance;
+    }
+  }
 
   handleChange(e) {
     this.setState({
@@ -69,6 +71,7 @@ export default class Withdrawal extends Component {
   }
 
   setPayoutBoxes(cash){
+
       console.log("*** distributing cash ***");
       let notesArray = [];
       let largeCoinsArray = [];
@@ -108,7 +111,8 @@ export default class Withdrawal extends Component {
       notes : [],
       largeCoins : [],
       smallCoins : [],
-      withdrawalAmount: ""
+      withdrawalAmount: "",
+      errorMessage : ""
     });
     //console.log("** State **", this.state);
     console.log("*** cash collected , emptying boxes ***");
@@ -166,6 +170,10 @@ export default class Withdrawal extends Component {
                               {this.state.currentBalance}
                              </div>
                             </div> {/* Account Balance Card */}
+
+                            <button className = "btn btn-lg btn-primary btn-block mb-1 logout-button"
+                            onClick={this.props.handler}> Logout </button>
+
 
                           </div> {/*Left Column End*/}
 

@@ -4,7 +4,7 @@
   "description": "A Node.js Application that simulates money withdrawal from an ATM.",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --ui tdd server/tests/withdrawalTest.js",
+    "test": "mocha --ui tdd server/tests/*",
     "start": "concurrently --kill-others-on-fail \"cd client && npm start\" \"nodemon server.js\" "
   },
   "keywords": [

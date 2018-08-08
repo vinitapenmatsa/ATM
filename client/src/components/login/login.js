@@ -21,6 +21,7 @@ export default class Login extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   handleChange(e) {
@@ -56,21 +57,25 @@ export default class Login extends Component {
 
   }
 
+logout(){
+  this.setState({ loggedIn : false });
+  sessionStorage.clear();
+}
 
   render() {
 
     if(this.state.loggedIn){
       console.debug("***USER LOGGED IN***");
       return (
-        <Withdrawal userDetails={this.state.accountDetails}></Withdrawal>
+        <Withdrawal handler={this.logout}
+        userDetails={this.state.accountDetails}></Withdrawal>
       )
     }
 
     if(sessionStorage.getItem('accountDetails')){
       console.debug("USER LOGGED IN");
-      console.log(this.props);
       return (
-        <Withdrawal userDetails={JSON.parse(sessionStorage.getItem('accountDetails'))}></Withdrawal>
+        <Withdrawal handler={this.logout}  userDetails={JSON.parse(sessionStorage.getItem('accountDetails'))}></Withdrawal>
       )
     }
 
@@ -90,37 +95,37 @@ export default class Login extends Component {
 
       return (
         <div className = "container login-container" >
-        <div className = "row justify-content-md-center" >
-        <div className = "col-sm-12 col-xs-12 col-md-6 col-lg-6" >
-        <div className = "card text-center" >
-          <div className = "card-body" >
-          Sign in !
+          <div className = "row justify-content-md-center" >
+            <div className = "col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+             <div className = "card text-center" >
+              <div className = "card-body" >{/* Login Card Body Start*/}
+               Sign in !
+              </div>
+              <hr></hr>
+              <div className = "card-body" >{/* Login Card Body End*/}
+              <form className = "form-signin"  onSubmit={this.handleSubmit}>{/* Login form start*/}
+               <div className="form-group has-danger">
+                <div className="form-control-feedback"><p className="validation-message">{this.state.errorMessage}</p></div> </div>
+                 <input type = "text" name = "accountNumber"  className = "form-control mb-2"   autoComplete="account-number"
+                  placeholder = {
+                   options.accountNumber.placeholder
+                  }
+                  onChange = {
+                    this.handleChange
+                   }  required autoFocus / >
+                 <input type = "password" name = "password" className = "form-control mb-4" autoComplete="current-password"
+                  placeholder = {
+                  options.password.placeholder
+                   }
+                  onChange = {
+                  this.handleChange
+                  }  required / >
+               <button className = "btn btn-lg btn-primary btn-block mb-1"
+               type = "submit"> Sign in </button>
+            </form> {/* Login form end*/}
+           </div>
+           </div>
           </div>
-          <hr></hr>
-        <div className = "card-body" >
-        <form className = "form-signin"  onSubmit={this.handleSubmit}>
-        <div className="form-group has-danger">
-        <div className="form-control-feedback"><p className="validation-message">{this.state.errorMessage}</p></div> </div>
-        <input type = "text" name = "accountNumber"  className = "form-control mb-2" autoComplete="account-number"
-        placeholder = {
-          options.accountNumber.placeholder
-        }
-        onChange = {
-          this.handleChange
-        }  required autoFocus / >
-        <input type = "password" name = "password" className = "form-control mb-4" autoComplete="current-password"
-        placeholder = {
-          options.password.placeholder
-        }
-        onChange = {
-          this.handleChange
-        }  required / >
-        <button className = "btn btn-lg btn-primary btn-block mb-1"
-        type = "submit"> Sign in </button>
-         </form>
-         </div>
-         </div>
-         </div>
          </div>
         </div>
       );

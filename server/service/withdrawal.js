@@ -9,7 +9,7 @@ let currentBalance;
 let checkIfAmountValid = function(req, res, next) {
 
   console.log("*** Validating witdrawal amount ***");
-  if (isNaN(req.body.amount) || parseInt(req.body.amount) <= 0) {
+  if (req.body.amount === "" || isNaN(req.body.amount) || parseInt(req.body.amount) <= 0) {
     res.status(400).json('Enter a valid withdrawal amount');
   } else {
     next();
@@ -72,7 +72,7 @@ let withdraw = function(req, res, next) {
      // get Change
       let change = getChange(result , parseInt(req.body.amount));
       if(change.length == 0){
-        return res.status(400).json("Change Not Available");
+        return res.status(400).json("Change Not Available , try rounding up or try a larger amount");
       }
 
       const updatedBalance = currentBalance - parseInt(req.body.amount);
@@ -119,7 +119,7 @@ let getCashPool = function(){
         raw: true,
         attributes: [ 'value' , 'quantity' , 'type' ]
       }).then( result => {
-        //console.log("**CASH POOL**",result);
+        console.log("**CASH POOL**",result);
         let cashPool = [];
         cashPool.push(...result);
         resolve(cashPool);
@@ -181,6 +181,7 @@ let greedyAlgorithmToGetChange = function( cashPool , amount ){
       amount = amount - cashPool[i].value;
       cashPool[i].quantity -= 1;
       change.push(cashPool[i]);
+      //console.log("pool",change);
     }
     i--;
   }
@@ -226,11 +227,11 @@ let dpAlgorithToGetChange = function( cashPool , amount ){ //130
     }
    coinCount[i] = note;
   }
-  console.log(dp[200]);
+
   if(dp[amount] > amount)
      return [];
 
-  console.log("** COIN COUNTS **" ,...coinCount );
+  console.log("** COIN COUNTS **" ,...dp );
   return countNotesDup(cashPool,coinCount,amount,[]);
 
 }
@@ -255,7 +256,7 @@ let countNotesDup = function( cashPool , coinCount  , amount , change){ // 1 100
     countNotesDup(cashPool,coinCount,cashPool[coinCount[a]-1].value,change);
   }
 
-   console.log("**CHANGE**" , change);
+   //console.log("**CHANGE**" , change);
    return change;
 }
 

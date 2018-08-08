@@ -1,5 +1,9 @@
+html { overflow-y: scroll; }
+
 body{
- background-color: #F5F5F5
+ overflow-y: scroll;
+ background-color: #F5F5F5;
+ position: absolute;
 }
 
 .card {
@@ -10,13 +14,13 @@ body{
   display: inline-block;
   position: fixed;
   top: 30%;
-  center:0px;
+  left:10%
 }
 
 @media (max-width:425px){
   .login-container{
     display:inline-block;
-    center:0px;
+    left:0.5%;
   }
 }
 
