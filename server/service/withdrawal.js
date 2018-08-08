@@ -298,7 +298,7 @@ let updateAccountBalance = function( accountNumber , updatedBalance ){
 
    //console.log("Updating Account Balance " , accountNumber , updatedBalance );
     return new Promise(function(resolve , reject){
-      //get cash pool from DB
+
       models.Account.update(
         { balance: updatedBalance },
         { where: { accountNumber: accountNumber }}
@@ -350,6 +350,9 @@ module.exports = {
     checkIfCashSufficient : checkIfCashSufficient,
     withdraw : withdraw,
     utilities: {
-      getCashPool: getCashPool
+      getCashPool: getCashPool,
+      greedyAlgorithmToGetChange: greedyAlgorithmToGetChange,
+      dpAlgorithmToGetChange : dpAlgorithmToGetChange
+
     }
 };

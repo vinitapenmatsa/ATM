@@ -9,7 +9,7 @@ const login = require("../service/login")
  */
 router.post('/', [login.checkIfAccountNumber, login.checkIfAccountExists, login.checkIfPasswordNotEmpty , login.loginUser ], (req, res, next) => {
   res.status(200).json({
-    message: 'Handling POST requests to /login'
+    message: 'POST requests to /login'
   });
 });
 

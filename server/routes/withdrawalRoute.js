@@ -8,7 +8,7 @@ const withdrawal = require("../service/withdrawal")
 **/
 router.post('/', [withdrawal.checkIfAmountValid,withdrawal.checkIfAccountBalanceSufficient,withdrawal.checkIfCashSufficient,withdrawal.withdraw], (req, res, next) => {
   res.status(200).json({
-    message: 'Handling POST requests to /withdraw'
+    message: 'POST requests to /withdraw'
   });
 });
 
