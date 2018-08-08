@@ -1,0 +1,38 @@
+{
+  "name": "coinify-atm",
+  "version": "1.0.0",
+  "description": "A Node.js Application that simulates money withdrawal from an ATM.",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --ui tdd server/tests/withdrawalTest.js",
+    "start": "concurrently --kill-others-on-fail \"cd client && npm start\" \"nodemon server.js\" "
+  },
+  "keywords": [
+    "ATM",
+    "Money",
+    "Withdrawal",
+    "Application"
+  ],
+  "author": "vinita penmetsa ( vinita.penmatsa@gmail.com )",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "concurrently": "^3.6.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.0",
+    "node-mocks-http": "^1.7.0",
+    "path": "^0.12.7",
+    "react": "^16.4.1",
+    "sequelize": "^4.38.0",
+    "sequelize-mock": "^0.10.2",
+    "sqlite3": "^4.0.2",
+    "supertest": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

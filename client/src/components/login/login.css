@@ -1,0 +1,26 @@
+body{
+ background-color: #F5F5F5
+}
+
+.card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.login-container{
+  display: inline-block;
+  position: fixed;
+  top: 30%;
+  center:0px;
+}
+
+@media (max-width:425px){
+  .login-container{
+    display:inline-block;
+    center:0px;
+  }
+}
+
+.validation-message{
+  text-align: left;
+  color: #E83C17
+}

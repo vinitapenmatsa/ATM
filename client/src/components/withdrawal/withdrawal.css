@@ -1,0 +1,29 @@
+.withdrawal-container{
+  display: inline-block;
+  position: fixed;
+  top: 30%;
+  center:0px;
+}
+
+.cols{
+  background-color: #F5F5F5;
+}
+.card{
+  margin-bottom: 10px;
+}
+
+.payout-box{
+  margin-bottom: 0px;
+}
+
+.profile-image{
+  width: 70%;
+}
+
+.close-icon{
+  margin-right: 10px;
+}
+
+.quantity-badge{
+  margin-right: 10px;
+}
