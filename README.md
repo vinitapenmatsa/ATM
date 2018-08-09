@@ -50,6 +50,10 @@ config file: /server/defaults.js -> algorithm: "greedy" -> change this to "dp" t
 
 Ideally , I would want to implement an algorithm that determines if the given set of denominations are caninical or not and then dynamically decide on which algorithm to use , however because of time contrains I haven't gone into implementing the isCanonical() function stub. This could be a future improvement.
 
+Additional features that coulbe implemented in the future.
+- Implement isCanonical() algorithm to decide greedy / dp at runtime
+- If change is unavailable , we could implement simple logic to send user suggested amounts for withdrawal. For example ATM is out of 10 , 5 , 2 , 1 notes and user enters 220 , we can suggest the user to try again with 200 or 250.
+
 ## Time complexity
 
 ### Greedy Approach: 
