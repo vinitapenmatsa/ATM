@@ -20,16 +20,16 @@ Following steps should get the REST service and UI running.
 
 App launch will direct you to a login page , you can use the following test data to login and test<br/>
 
-test account number1: 123456789<br/>
+test account number1 (balance 3000): 123456789<br/>
+password: coinifyaccount1<br/> 
+
+test account number2 (balance 28545): 123789456<br/>
 password: coinifyaccount1<br/>
 
-test account number2: 123789456<br/>
+test account number3 (balance 300): 345621789<br/>
 password: coinifyaccount1<br/>
 
-test account number3: 345621789<br/>
-password: coinifyaccount1<br/>
-
-test account number4: 123123123<br/>
+test account number4 (balance 99999999): 123123123<br/>
 password: coinifyaccount1<br/>
 
 ATM is loaded with the following denominations<br/>
@@ -54,7 +54,7 @@ Ideally , I would want to implement an algorithm that determines if the given se
 
 ### Greedy Approach: 
   In this case you 
-       - iterate over each coin to find the largest coin < sum and add it to the change set.
+       - iterate over each coin to find the largest coin <= sum and add it to the change set.
        - update sum to sum - coin value.
        - continue untill sum == 0
        
