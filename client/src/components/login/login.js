@@ -26,6 +26,7 @@ export default class Login extends Component {
 
   handleChange(e) {
     this.setState({
+      errorMessage : "",
       [e.target.name]: e.target.value
     });
   }
