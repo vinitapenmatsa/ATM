@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --ui tdd server/tests/*",
-    "start": "concurrently --kill-others-on-fail \"cd client && npm start\" \"nodemon server.js\" "
+    "start": "concurrently --kill-others-on-fail \"cd client && npm start\" \"nodemon server.js\" ",
+    "install": "cd client && npm install"
   },
   "keywords": [
     "ATM",
