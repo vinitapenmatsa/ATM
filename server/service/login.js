@@ -56,6 +56,9 @@ let checkIfPasswordNotEmpty = function(req, res, next) {
   }
 };
 
+/*
+*  logs user in if credentials are valid
+*/
 let login = function(req, res, next) {
 
   Account.findOne({
