@@ -24,7 +24,7 @@
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "mocha": "^5.2.0",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "node-mocks-http": "^1.7.0",
     "path": "^0.12.7",
     "react": "^16.4.1",
